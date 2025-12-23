@@ -1,0 +1,279 @@
+/* ==========================================
+   PERFORMANCE OPTIMIZATION STYLES
+   ========================================== 
+   
+   This file contains critical performance optimizations
+   to improve rendering, scrolling, and animation performance.
+*/
+
+/* ==========================================
+   1. HARDWARE ACCELERATION FOR ANIMATED ELEMENTS
+   ========================================== */
+
+/* Hero sections - Hardware acceleration (optimized) */
+.hero,
+.projects-hero,
+.education-hero,
+.certificates-hero,
+.contact-hero {
+    /* Only apply will-change during animations, removed static declaration */
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+}
+
+/* Particles and floating elements - GPU acceleration */
+.particles-container,
+.particle,
+.floating-shapes,
+.shape,
+.code-network,
+.code-symbols,
+.code-symbol {
+    will-change: transform, opacity;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+}
+
+/* ==========================================
+   2. OPTIMIZE SCROLL PERFORMANCE
+   ========================================== */
+
+/* Enable CSS containment for better scrolling */
+.about,
+.education-section,
+.skills-section,
+.certificates-section,
+.contact-section,
+.projects-section {
+    contain: layout style paint;
+    /* Removed content-visibility to prevent layout shift issues */
+}
+
+/* Smooth scroll for navigation */
+html {
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* ==========================================
+   3. IMAGE LOADING OPTIMIZATION
+   ========================================== */
+
+img {
+    /* Prevent layout shift */
+    display: block;
+    max-width: 100%;
+    height: auto;
+    /* Hardware acceleration for image transforms */
+    transform: translate3d(0, 0, 0);
+}
+
+/* ==========================================
+   4. REDUCE REPAINTS FOR ANIMATIONS
+   ========================================== */
+
+/* Buttons and interactive elements - Optimized */
+.btn,
+.nav-links a,
+.nav-btn,
+.project-card,
+.certificate-card,
+.skill-tag {
+    /* Removed static will-change, only use transform for GPU acceleration */
+    transform: translate3d(0, 0, 0);
+}
+
+/* No need for hover will-change removal as it's not declared */
+
+/* ==========================================
+   5. OPTIMIZE TEXT RENDERING
+   ========================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.hero-title,
+.projects-hero-title {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Prevent layout shift */
+    font-display: swap;
+}
+
+/* ==========================================
+   6. DEBOUNCE EXPENSIVE EFFECTS
+   ========================================== */
+
+/* Use transform instead of top/left for positioning */
+.scroll-indicator,
+.section-nav-dots,
+.nav-dot {
+    transform: translate3d(0, 0, 0);
+    will-change: transform, opacity;
+}
+
+/* ==========================================
+   7. REDUCE SHADOW CALCULATIONS
+   ========================================== */
+
+/* Shadows only on hover for better performance */
+.project-card,
+.certificate-card,
+.education-card {
+    will-change: transform, box-shadow;
+}
+
+/* ==========================================
+   8. OPTIMIZE ANIMATIONS
+   ========================================== */
+
+/* Use transform and opacity for smooth 60fps animations */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ==========================================
+   9. IMPROVE PAINT PERFORMANCE
+   ========================================== */
+
+/* Isolate expensive layers */
+.glass-nav,
+.footer-modern,
+.mobile-menu {
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+    isolation: isolate;
+}
+
+/* ==========================================
+   10. CRITICAL CSS LOADING
+   ========================================== */
+
+/* Above-the-fold content optimization */
+.hero-content,
+.hero-title,
+.professional-subtitle {
+    contain: layout style;
+}
+
+/* ==========================================
+   11. REDUCE JAVASCRIPT WORKLOAD
+   ========================================== */
+
+/* Use CSS for simple animations instead of JS */
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ==========================================
+   12. OPTIMIZE FOR MOBILE - ENHANCED
+   ========================================== */
+
+@media (max-width: 768px) {
+
+    /* Reduce particle count on mobile for better performance */
+    .particle:nth-child(n+4),
+    .shape:nth-child(n+5) {
+        display: none;
+    }
+
+    /* Simplify shadows on mobile - reduce GPU load */
+    .project-card:hover,
+    .certificate-card:hover,
+    .education-card:hover {
+        box-shadow: var(--shadow-md) !important;
+    }
+
+    /* Reduce background complexity */
+    .code-network,
+    .blueprint-grid,
+    .nodes-network {
+        opacity: 0.3 !important;
+    }
+
+    /* Faster animations on mobile */
+    .btn,
+    .project-card,
+    .certificate-card,
+    .nav-dot {
+        transition-duration: 0.2s !important;
+    }
+
+    /* Simplify floating animations */
+    .code-symbol,
+    .craft-icon {
+        animation-duration: 2s !important;
+    }
+
+    /* Disable parallax effects on mobile */
+    [data-parallax] {
+        transform: none !important;
+    }
+
+    /* Reduce blur for better performance */
+    .glass-nav,
+    .mobile-menu {
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+    }
+
+    /* Hide decorative elements on small screens */
+    .corner-decoration {
+        display: none;
+    }
+
+    /* Optimize scroll performance */
+    body {
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+    }
+
+    /* Reduce expensive gradients */
+    .hero::after,
+    .projects-hero::after {
+        display: none;
+    }
+}
+
+/* Extra optimizations for very small screens */
+@media (max-width: 480px) {
+
+    /* Hide even more particles */
+    .particle:nth-child(n+3),
+    .shape:nth-child(n+4) {
+        display: none;
+    }
+
+    /* Further simplify backgrounds */
+    .code-symbols,
+    .floating-shapes {
+        opacity: 0.2 !important;
+    }
+
+    /* Ultra-fast transitions */
+    * {
+        transition-duration: 0.15s !important;
+    }
+}

@@ -1,0 +1,329 @@
+/* ==========================================
+   SCROLL INDICATOR & NAVIGATION DOTS
+   (Shared styles for all pages)
+   ========================================== */
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    animation: fadeIn 1s ease-out 1.5s backwards;
+    z-index: 10;
+}
+
+.mouse {
+    width: 30px;
+    height: 50px;
+    border: 2px solid rgba(249, 115, 22, 0.5);
+    border-radius: 20px;
+    position: relative;
+}
+
+.wheel {
+    width: 4px;
+    height: 10px;
+    background: #f97316;
+    border-radius: 2px;
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: wheelScroll 2s ease-in-out infinite;
+}
+
+@keyframes wheelScroll {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(15px);
+    }
+}
+
+.scroll-text {
+    color: #94a3b8;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Section Navigation Dots - ROLLS-ROYCE INSPIRED DESIGN */
+.section-nav-dots {
+    position: fixed;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0.5rem 0;
+}
+
+.nav-dot {
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+/* Connecting line between dots */
+.nav-dot::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 16px;
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 0.3) 0%,
+            rgba(255, 255, 255, 0.1) 50%,
+            transparent 100%);
+    opacity: 0.5;
+    transition: all 0.6s ease;
+}
+
+.nav-dot:last-child::after {
+    display: none;
+}
+
+/* Inactive dots - Small circles with slide-in effect */
+.nav-dot::before {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    border: 0px solid transparent;
+    opacity: 1;
+    transform: scale(1) translateX(0);
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
+    transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1),
+        opacity 0.5s ease,
+        transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Hover effect - slide and glow */
+.nav-dot:hover::before {
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.5),
+        0 0 20px rgba(255, 255, 255, 0.2);
+    transform: scale(1.4) translateX(-2px);
+}
+
+.nav-dot:hover::after {
+    opacity: 0.8;
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 0.5) 0%,
+            rgba(255, 255, 255, 0.2) 50%,
+            transparent 100%);
+}
+
+/* ACTIVE DOT - Slides from side with connecting ring */
+.nav-dot.active::before {
+    width: 18px;
+    height: 18px;
+    background: transparent;
+    border: 1.5px solid rgba(255, 255, 255, 0.9);
+    transform: scale(1) translateX(0);
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.5),
+        0 0 28px rgba(255, 255, 255, 0.2),
+        inset 0 0 12px rgba(255, 255, 255, 0.15);
+    animation: dotSlideIn 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Inner dot that slides in */
+.nav-dot.active {
+    position: relative;
+}
+
+.nav-dot.active .dot-inner {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7),
+        0 0 20px rgba(255, 255, 255, 0.4),
+        inset 0 1px 3px rgba(255, 255, 255, 0.6);
+    opacity: 0;
+    transform: scale(0) translateX(-20px);
+    animation: innerDotSlideIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s forwards;
+    z-index: 2;
+}
+
+/* Create inner dot element dynamically via JS or add to HTML */
+.nav-dot.active::after {
+    content: '';
+    position: static;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7),
+        0 0 20px rgba(255, 255, 255, 0.4),
+        inset 0 1px 3px rgba(255, 255, 255, 0.6);
+    opacity: 0;
+    transform: scale(0) translateX(-20px);
+    animation: innerDotSlideIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s forwards;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -3px 0 0 -3px;
+}
+
+/* Slide in animation for outer ring - from right */
+@keyframes dotSlideIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.4) translateX(15px);
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale(1.1) translateX(-2px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateX(0);
+    }
+}
+
+/* Slide in animation for inner dot - from left */
+@keyframes innerDotSlideIn {
+    0% {
+        opacity: 0;
+        transform: scale(0) translateX(-20px);
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale(1.2) translateX(2px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateX(0);
+    }
+}
+
+/* Connecting line pulse when active */
+.nav-dot.active::after {
+    opacity: 1;
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 0.6) 0%,
+            rgba(255, 255, 255, 0.3) 50%,
+            transparent 100%);
+    animation: linePulse 2s ease-in-out infinite;
+}
+
+@keyframes linePulse {
+
+    0%,
+    100% {
+        opacity: 0.8;
+    }
+
+    50% {
+        opacity: 1;
+        width: 2px;
+    }
+}
+
+/* Remove SVG styles */
+.dot-shape,
+.dot-circle-outer,
+.dot-circle-inner {
+    display: none;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .section-nav-dots {
+        right: 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .nav-dot {
+        width: 28px;
+        height: 28px;
+    }
+
+    .nav-dot::before {
+        width: 5px;
+        height: 5px;
+    }
+
+    .nav-dot.active::before {
+        width: 20px;
+        height: 20px;
+    }
+
+    .nav-dot.active::after {
+        width: 7px;
+        height: 7px;
+        margin: -3.5px 0 0 -3.5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-nav-dots {
+        right: 1rem;
+        gap: 1.2rem;
+    }
+
+    .nav-dot {
+        width: 24px;
+        height: 24px;
+    }
+
+    .nav-dot::before {
+        width: 4px;
+        height: 4px;
+    }
+
+    .nav-dot.active::before {
+        width: 16px;
+        height: 16px;
+    }
+
+    .nav-dot.active::after {
+        width: 6px;
+        height: 6px;
+        margin: -3px 0 0 -3px;
+    }
+}

@@ -1,0 +1,934 @@
+/* 
+  ==========================================
+  CERTIFICATES PAGE - ULTRA PREMIUM DESIGN
+  ==========================================
+  Advanced animations, 3D transforms, and dynamic effects
+*/
+
+/* ==========================================
+   FLOATING PARTICLES BACKGROUND
+   ========================================== */
+
+.certificates-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.certificates-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(239, 68, 68, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(212, 165, 116, 0.05) 0%, transparent 50%);
+    animation: ambientGlow 15s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes ambientGlow {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(1) rotate(0deg);
+    }
+
+    50% {
+        opacity: 0.6;
+        transform: scale(1.1) rotate(5deg);
+    }
+}
+
+/* ==========================================
+   ULTRA COLORFUL SECTION HEADER
+   ========================================== */
+
+.certificates-section .container>h1 {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+    position: relative;
+    background: linear-gradient(135deg,
+            #ef4444 0%,
+            #f97316 20%,
+            #fbbf24 40%,
+            #fb923c 60%,
+            #dc2626 80%,
+            #ef4444 100%);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: rainbowShift 8s ease-in-out infinite, titlePulse 3s ease-in-out infinite;
+    text-shadow: 0 0 60px rgba(255, 107, 107, 0.3);
+    letter-spacing: -0.5px;
+}
+
+@keyframes rainbowShift {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+        filter: hue-rotate(0deg);
+    }
+
+    50% {
+        background-position: 100% 50%;
+        filter: hue-rotate(20deg);
+    }
+}
+
+@keyframes titlePulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+/* Decorative elements around title */
+.certificates-section .container>h1::before,
+.certificates-section .container>h1::after {
+    content: '✨';
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.8;
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+.certificates-section .container>h1::before {
+    left: -3rem;
+    top: 50%;
+    transform: translateY(-50%);
+    animation-delay: 0s;
+}
+
+.certificates-section .container>h1::after {
+    right: -3rem;
+    top: 50%;
+    transform: translateY(-50%);
+    animation-delay: 1s;
+}
+
+@keyframes sparkle {
+
+    0%,
+    100% {
+        opacity: 0.5;
+        transform: translateY(-50%) scale(1) rotate(0deg);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(-50%) scale(1.3) rotate(180deg);
+    }
+}
+
+.certificates-section .section-subtitle {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    position: relative;
+    background: linear-gradient(90deg,
+            #ef4444,
+            #f97316,
+            #fbbf24,
+            #f97316,
+            #ef4444);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: subtitleFlow 6s linear infinite;
+    letter-spacing: 0.5px;
+}
+
+@keyframes subtitleFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
+/* Decorative line under subtitle */
+.certificates-section .section-subtitle::after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 3px;
+    background: linear-gradient(90deg,
+            transparent,
+            #ef4444,
+            #f97316,
+            #fbbf24,
+            #f97316,
+            #ef4444,
+            transparent);
+    background-size: 200% 100%;
+    animation: lineGlow 3s linear infinite;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+}
+
+@keyframes lineGlow {
+    0% {
+        background-position: 0% 50%;
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        background-position: 200% 50%;
+        opacity: 0.5;
+    }
+}
+
+/* Floating decorative shapes */
+.certificates-section .container {
+    position: relative;
+}
+
+.certificates-section .container::before {
+    content: '🎨';
+    position: absolute;
+    top: -2rem;
+    left: 10%;
+    font-size: 3rem;
+    opacity: 0.3;
+    animation: float1 4s ease-in-out infinite;
+    filter: blur(1px);
+}
+
+.certificates-section .container::after {
+    content: '🌟';
+    position: absolute;
+    top: -2rem;
+    right: 10%;
+    font-size: 2.5rem;
+    opacity: 0.3;
+    animation: float2 5s ease-in-out infinite;
+    filter: blur(1px);
+}
+
+@keyframes float1 {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
+}
+
+@keyframes float2 {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg) scale(1);
+    }
+
+    50% {
+        transform: translateY(-25px) rotate(-180deg) scale(1.2);
+    }
+}
+
+/* Responsive header */
+@media (max-width: 768px) {
+    .certificates-section .container>h1 {
+        font-size: 2.5rem;
+    }
+
+    .certificates-section .container>h1::before,
+    .certificates-section .container>h1::after {
+        font-size: 1.5rem;
+        left: -2rem;
+        right: -2rem;
+    }
+
+    .certificates-section .section-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .certificates-section .container::before,
+    .certificates-section .container::after {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .certificates-section .container>h1 {
+        font-size: 2rem;
+    }
+
+    .certificates-section .container>h1::before,
+    .certificates-section .container>h1::after {
+        display: none;
+    }
+
+    .certificates-section .section-subtitle {
+        font-size: 1rem;
+    }
+
+    .certificates-section .section-subtitle::after {
+        width: 120px;
+        height: 2px;
+    }
+}
+
+/* ==========================================
+   ULTRA PREMIUM 3D TAB NAVIGATION
+   ========================================== */
+
+.certificates-tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin: 3rem auto 4rem;
+    max-width: 1050px;
+    padding: 2.5rem 1.5rem;
+    background: transparent;
+    position: relative;
+    animation: tabsFloatIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes tabsFloatIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Remove old container styling */
+
+
+
+/* Tab button styles moved to tab-shapes.css */
+
+
+/* ==========================================
+   ADVANCED TAB CONTENT ANIMATIONS
+   ========================================== */
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+    animation: tabContentReveal 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes tabContentReveal {
+    from {
+        opacity: 0;
+        transform: perspective(1000px) rotateX(-15deg) translateY(50px);
+        filter: blur(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: perspective(1000px) rotateX(0) translateY(0);
+        filter: blur(0);
+    }
+}
+
+/* ==========================================
+   3D ANIMATED CERTIFICATE CARDS
+   ========================================== */
+
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2.5rem;
+    margin-top: 2rem;
+    perspective: 1500px;
+}
+
+.certificate-card {
+    background: linear-gradient(135deg,
+            rgba(45, 55, 72, 0.95) 0%,
+            rgba(55, 65, 81, 0.9) 100%);
+    border-radius: 24px;
+    border: 2px solid rgba(212, 165, 116, 0.25);
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: cardFloat 6s ease-in-out infinite;
+    animation-delay: calc(var(--card-index) * 0.1s);
+}
+
+@keyframes cardFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotateY(0deg);
+    }
+
+    25% {
+        transform: translateY(-10px) rotateY(2deg);
+    }
+
+    50% {
+        transform: translateY(0) rotateY(0deg);
+    }
+
+    75% {
+        transform: translateY(-5px) rotateY(-2deg);
+    }
+}
+
+/* Animated gradient border */
+.certificate-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg,
+            var(--primary-color),
+            var(--secondary-color),
+            var(--primary-color));
+    background-size: 200% 100%;
+    animation: borderSlide 3s linear infinite;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes borderSlide {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    100% {
+        background-position: 200% 0%;
+    }
+}
+
+/* Shimmer effect overlay */
+.certificate-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg,
+            transparent 30%,
+            rgba(255, 255, 255, 0.1) 50%,
+            transparent 70%);
+    transform: rotate(45deg);
+    animation: shimmer 4s infinite;
+    pointer-events: none;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+
+    100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
+}
+
+.certificate-card:hover {
+    transform: translateY(-10px) scale(1.01);
+    border-color: var(--accent-red);
+    box-shadow:
+        0 20px 50px rgba(239, 68, 68, 0.3),
+        0 10px 25px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 107, 107, 0.3) inset;
+    animation: none;
+}
+
+.certificate-card:hover::before {
+    transform: scaleX(1);
+}
+
+.certificate-image {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(135deg, #1a2332 0%, #2d3748 100%);
+    border-radius: 24px 24px 0 0;
+}
+
+.certificate-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+            rgba(212, 165, 116, 0.2) 0%,
+            rgba(139, 92, 246, 0.2) 100%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 1;
+}
+
+.certificate-card:hover .certificate-image::before {
+    opacity: 1;
+}
+
+.certificate-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    transition: transform 0.6s ease, filter 0.5s ease;
+    filter: grayscale(0%) brightness(1);
+    padding: 0.5rem;
+}
+
+.certificate-card:hover .certificate-image img {
+    transform: scale(1.05);
+    filter: grayscale(0%) brightness(1.05);
+}
+
+.certificate-content {
+    padding: 1.75rem;
+    position: relative;
+    z-index: 2;
+}
+
+.certificate-content h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.875rem;
+    line-height: 1.3;
+    transition: all 0.3s ease;
+}
+
+.certificate-card:hover .certificate-content h3 {
+    transform: translateX(5px);
+    color: #fbbf24;
+}
+
+.certificate-platform {
+    display: none;
+}
+
+.certificate-year {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.certificate-description {
+    color: var(--text-tertiary);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+    transition: color 0.3s ease;
+}
+
+.certificate-card:hover .certificate-description {
+    color: var(--text-secondary);
+}
+
+.certificate-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    padding: 0.5rem 1rem 0.5rem 0;
+}
+
+.certificate-link::after {
+    content: '→';
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.certificate-link:hover {
+    color: var(--accent-red);
+    transform: translateX(8px);
+}
+
+.certificate-link:hover::after {
+    transform: translateX(10px) scale(1.2);
+}
+
+/* Certificate Tags */
+.certificate-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    margin-top: 0.75rem;
+}
+
+.certificate-tags .tag {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: rgba(251, 191, 36, 0.9);
+    background: rgba(251, 191, 36, 0.1);
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    letter-spacing: 0.3px;
+}
+
+.certificate-tags .tag:hover {
+    background: rgba(251, 191, 36, 0.2);
+    border-color: rgba(251, 191, 36, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(251, 191, 36, 0.2);
+}
+
+/* ==========================================
+   CATEGORY-SPECIFIC ENHANCED STYLES
+   ========================================== */
+
+/* Participation Cards - Professional Cyan Theme */
+.participation-card {
+    border-color: rgba(6, 182, 212, 0.4);
+    background: linear-gradient(135deg,
+            rgba(45, 55, 72, 0.95) 0%,
+            rgba(60, 45, 80, 0.9) 100%);
+}
+
+.participation-card::before {
+    background: linear-gradient(90deg,
+            #06b6d4,
+            #0891b2,
+            #06b6d4);
+    background-size: 200% 100%;
+}
+
+.participation-card:hover {
+    border-color: #ef4444;
+    box-shadow:
+        0 25px 60px rgba(239, 68, 68, 0.4),
+        0 15px 30px rgba(0, 0, 0, 0.5),
+        0 0 80px rgba(239, 68, 68, 0.2);
+}
+
+
+.participation-card .certificate-platform {
+    color: #22d3ee;
+    background: rgba(6, 182, 212, 0.15);
+    border-color: rgba(6, 182, 212, 0.4);
+}
+
+/* Internship Cards - Professional Purple Theme */
+.internship-card {
+    border-color: rgba(139, 92, 246, 0.4);
+    background: linear-gradient(135deg,
+            rgba(45, 55, 72, 0.95) 0%,
+            rgba(60, 45, 80, 0.9) 100%);
+}
+
+.internship-card::before {
+    background: linear-gradient(90deg,
+            #8b5cf6,
+            #a78bfa,
+            #8b5cf6);
+    background-size: 200% 100%;
+}
+
+.internship-card:hover {
+    border-color: #8b5cf6;
+    box-shadow:
+        0 25px 60px rgba(139, 92, 246, 0.4),
+        0 15px 30px rgba(0, 0, 0, 0.5),
+        0 0 80px rgba(139, 92, 246, 0.2);
+}
+
+.internship-card .certificate-platform {
+    color: #a78bfa;
+    background: rgba(139, 92, 246, 0.15);
+    border-color: rgba(139, 92, 246, 0.4);
+}
+
+/* Achievement Cards - Ultra Red Theme */
+.achievement-card {
+    border-color: rgba(239, 68, 68, 0.4);
+    background: linear-gradient(135deg,
+            rgba(45, 55, 72, 0.95) 0%,
+            rgba(80, 45, 45, 0.9) 100%);
+}
+
+.achievement-card::before {
+    background: linear-gradient(90deg,
+            #ef4444,
+            #f97316,
+            #ef4444);
+    background-size: 200% 100%;
+}
+
+.achievement-card:hover {
+    border-color: #ef4444;
+    box-shadow:
+        0 25px 60px rgba(239, 68, 68, 0.4),
+        0 15px 30px rgba(0, 0, 0, 0.5),
+        0 0 80px rgba(239, 68, 68, 0.2);
+}
+
+.achievement-card .certificate-platform {
+    color: #f87171;
+    background: rgba(239, 68, 68, 0.15);
+    border-color: rgba(239, 68, 68, 0.4);
+}
+
+/* Ultra Premium Achievement Badge */
+.achievement-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: linear-gradient(135deg, #ffd700, #ffed4e, #ffd700);
+    background-size: 200% 200%;
+    color: #111;
+    font-size: 2.2rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+        0 6px 20px rgba(255, 215, 0, 0.5),
+        0 0 40px rgba(255, 215, 0, 0.3),
+        0 0 0 3px rgba(255, 255, 255, 0.2) inset;
+    animation: badgePulse 2s ease-in-out infinite, badgeRotate 10s linear infinite;
+    z-index: 10;
+    transform-style: preserve-3d;
+}
+
+@keyframes badgePulse {
+
+    0%,
+    100% {
+        transform: scale(1) rotateZ(0deg);
+        box-shadow:
+            0 6px 20px rgba(255, 215, 0, 0.5),
+            0 0 40px rgba(255, 215, 0, 0.3);
+    }
+
+    50% {
+        transform: scale(1.15) rotateZ(180deg);
+        box-shadow:
+            0 10px 30px rgba(255, 215, 0, 0.7),
+            0 0 60px rgba(255, 215, 0, 0.5);
+    }
+}
+
+@keyframes badgeRotate {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
+/* ==========================================
+   STAGGER ANIMATION FOR CARDS
+   ========================================== */
+
+.certificate-card:nth-child(1) {
+    --card-index: 0;
+    animation-delay: 0s;
+}
+
+.certificate-card:nth-child(2) {
+    --card-index: 1;
+    animation-delay: 0.1s;
+}
+
+.certificate-card:nth-child(3) {
+    --card-index: 2;
+    animation-delay: 0.2s;
+}
+
+.certificate-card:nth-child(4) {
+    --card-index: 3;
+    animation-delay: 0.3s;
+}
+
+.certificate-card:nth-child(5) {
+    --card-index: 4;
+    animation-delay: 0.4s;
+}
+
+.certificate-card:nth-child(6) {
+    --card-index: 5;
+    animation-delay: 0.5s;
+}
+
+.tab-content.active .certificate-card {
+    animation: cardEntrance 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+    animation-delay: calc(var(--card-index) * 0.15s);
+}
+
+@keyframes cardEntrance {
+    from {
+        opacity: 0;
+        transform: perspective(1000px) rotateY(-30deg) translateX(-100px) translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: perspective(1000px) rotateY(0deg) translateX(0) translateY(0);
+    }
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+
+@media (max-width: 768px) {
+    .certificates-tabs {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 1rem;
+        border-radius: 24px;
+    }
+
+    .tab-btn {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .certificates-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .certificate-card {
+        border-radius: 20px;
+    }
+
+    .certificate-card:hover {
+        transform: translateY(-10px) scale(1.02);
+    }
+
+    .certificate-content h3 {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .certificates-tabs {
+        margin: 2rem auto 3rem;
+    }
+
+    .tab-btn {
+        padding: 0.875rem 1.25rem;
+        font-size: 0.95rem;
+    }
+
+    .certificate-image {
+        height: 180px;
+    }
+
+    .certificate-content {
+        padding: 1.5rem;
+    }
+
+    .certificate-content h3 {
+        font-size: 1.2rem;
+    }
+
+    .achievement-badge {
+        width: 50px;
+        height: 50px;
+        font-size: 1.8rem;
+    }
+}
+
+/* ==========================================
+   EMPTY STATE
+   ========================================== */
+
+.empty-state {
+    text-align: center;
+    padding: 5rem 2rem;
+    color: var(--text-muted);
+    animation: fadeIn 0.8s ease;
+}
+
+.empty-state svg,
+.empty-state .icon {
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.4;
+    animation: floatIcon 3s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.empty-state h3 {
+    font-size: 1.75rem;
+    color: var(--text-tertiary);
+    margin-bottom: 0.75rem;
+}
+
+.empty-state p {
+    font-size: 1.1rem;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

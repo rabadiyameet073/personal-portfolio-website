@@ -1,0 +1,325 @@
+/* 
+  ==========================================
+  J.A.R.V.I.S. INFO PAGE - SPECIFIC STYLES
+  ==========================================
+  Extracted from jarvis-info.html for better maintainability
+*/
+
+/* ==========================================
+   1. PAGE LAYOUT
+   ========================================== */
+
+.jarvis-page {
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('../images/jarvis-project.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+}
+
+.jarvis-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+/* ==========================================
+   2. MAIN CONTENT CARD
+   ========================================== */
+
+.jarvis-content {
+    max-width: 900px;
+    background: rgba(15, 23, 42, 0.95);
+    border-radius: 24px;
+    padding: 3rem;
+    box-shadow: 0 0 60px rgba(139, 92, 246, 0.3), 0 0 120px rgba(139, 92, 246, 0.1);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    backdrop-filter: blur(20px);
+    animation: jarvisFadeInUp 0.8s ease-out;
+}
+
+@keyframes jarvisFadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================
+   3. HEADER SECTION
+   ========================================== */
+
+.jarvis-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.jarvis-logo {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    animation: jarvisPulse 2s ease-in-out infinite;
+}
+
+@keyframes jarvisPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.5));
+    }
+
+    50% {
+        transform: scale(1.05);
+        filter: drop-shadow(0 0 30px rgba(139, 92, 246, 0.8));
+    }
+}
+
+.jarvis-page-title {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+}
+
+.jarvis-subtitle {
+    color: #94a3b8;
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+
+/* ==========================================
+   4. ALERT BOX
+   ========================================== */
+
+.alert-box {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.2) 0%, rgba(220, 38, 38, 0.1) 100%);
+    border: 2px solid #ef4444;
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.alert-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ef4444, #dc2626, #ef4444);
+    animation: alertShimmer 2s linear infinite;
+}
+
+@keyframes alertShimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.alert-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.alert-title {
+    color: #ef4444;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.alert-text {
+    color: #cbd5e0;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.alert-text-margin {
+    margin-top: 1rem;
+}
+
+/* ==========================================
+   5. INFO SECTIONS
+   ========================================== */
+
+.info-section {
+    margin-bottom: 2.5rem;
+}
+
+.info-title {
+    color: #8b5cf6;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.info-title::before {
+    content: '';
+    width: 4px;
+    height: 30px;
+    background: linear-gradient(180deg, #8b5cf6, #ec4899);
+    border-radius: 2px;
+}
+
+.info-text {
+    color: #cbd5e0;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+/* ==========================================
+   6. FEATURE LIST
+   ========================================== */
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.feature-item {
+    color: #cbd5e0;
+    font-size: 1.05rem;
+    padding: 1rem 1.5rem;
+    margin-bottom: 0.75rem;
+    background: rgba(139, 92, 246, 0.1);
+    border-left: 4px solid #8b5cf6;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.feature-item:hover {
+    background: rgba(139, 92, 246, 0.2);
+    transform: translateX(8px);
+}
+
+/* ==========================================
+   7. TECH BADGES
+   ========================================== */
+
+.jarvis-tech-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.jarvis-tech-badge {
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s;
+}
+
+.jarvis-tech-badge:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.badge-python {
+    background: linear-gradient(135deg, #306998 0%, #ffd43b 100%);
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.badge-bat {
+    background: linear-gradient(135deg, #4caf50 0%, #8bc34a 100%);
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.badge-vbs {
+    background: linear-gradient(135deg, #9c27b0 0%, #e91e63 100%);
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================================
+   8. CTA BUTTONS
+   ========================================== */
+
+.cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    justify-content: center;
+}
+
+.jarvis-btn {
+    padding: 1rem 2.5rem;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.jarvis-btn-primary {
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(139, 92, 246, 0.4);
+}
+
+.jarvis-btn-primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(139, 92, 246, 0.6);
+}
+
+.jarvis-btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.jarvis-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-4px);
+}
+
+/* ==========================================
+   9. RESPONSIVE DESIGN
+   ========================================== */
+
+@media (max-width: 768px) {
+    .jarvis-content {
+        padding: 2rem;
+    }
+
+    .jarvis-page-title {
+        font-size: 2rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+}

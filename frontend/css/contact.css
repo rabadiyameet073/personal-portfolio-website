@@ -1,0 +1,937 @@
+/* ==========================================
+   CONTACT PAGE - PREMIUM DESIGN & ANIMATIONS
+   ==========================================
+   Modern contact form with glassmorphism and smooth animations
+*/
+
+/* ==========================================
+   1. CONTACT SECTION BASE
+   ========================================== */
+
+.contact-section {
+    padding: var(--spacing-section) var(--spacing-xl);
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(239, 68, 68, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(212, 165, 116, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+    animation: ambientPulse 15s ease-in-out infinite;
+}
+
+@keyframes ambientPulse {
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
+
+.contact-section h1 {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #ffffff 0%, var(--primary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: titleSlideIn 0.8s ease-out;
+}
+
+@keyframes titleSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================
+   2. CONTACT WRAPPER LAYOUT
+   ========================================== */
+
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 3rem;
+}
+
+/* ==========================================
+   3. CONTACT FORM - GLASSMORPHISM DESIGN
+   ========================================== */
+
+.contact-form-wrapper {
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(20px) saturate(150%);
+    border-radius: 24px;
+    padding: 2rem 2.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: formSlideUp 0.8s ease-out 0.2s both;
+}
+
+@keyframes formSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contact-form-wrapper:hover {
+    transform: translateY(-8px);
+    box-shadow:
+        0 25px 70px rgba(239, 68, 68, 0.2),
+        0 15px 40px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 107, 107, 0.2) inset;
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.contact-form-wrapper h2 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.contact-form-wrapper h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-red), var(--primary-color));
+    border-radius: 10px;
+    animation: lineExpand 0.6s ease-out 0.4s both;
+}
+
+@keyframes lineExpand {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+
+    to {
+        width: 60px;
+        opacity: 1;
+    }
+}
+
+/* ==========================================
+   4. FORM GROUPS - ANIMATED INPUTS
+   ========================================== */
+
+.form-group {
+    margin-bottom: 1.25rem;
+    position: relative;
+    animation: inputFadeIn 0.6s ease-out both;
+    animation-delay: calc(var(--item-index, 0) * 0.1s + 0.4s);
+}
+
+.form-group:nth-child(1) {
+    --item-index: 0;
+}
+
+.form-group:nth-child(2) {
+    --item-index: 1;
+}
+
+.form-group:nth-child(3) {
+    --item-index: 2;
+}
+
+.form-group:nth-child(4) {
+    --item-index: 3;
+}
+
+@keyframes inputFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.form-group .required {
+    color: var(--accent-red);
+    margin-left: 2px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    background: rgba(51, 65, 85, 0.5);
+    border: 2px solid rgba(148, 163, 184, 0.2);
+    border-radius: 12px;
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(148, 163, 184, 0.5);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--accent-red);
+    background: rgba(51, 65, 85, 0.7);
+    box-shadow:
+        0 0 0 4px rgba(239, 68, 68, 0.1),
+        0 8px 20px rgba(239, 68, 68, 0.2);
+    transform: translateY(-2px);
+}
+
+.form-group input:focus+label,
+.form-group textarea:focus+label {
+    color: var(--accent-red);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Floating label effect */
+.form-group {
+    position: relative;
+}
+
+.form-group input:focus~label,
+.form-group textarea:focus~label,
+.form-group input:not(:placeholder-shown)~label,
+.form-group textarea:not(:placeholder-shown)~label {
+    transform: translateY(-2px);
+    font-size: 0.85rem;
+}
+
+/* ==========================================
+   5. SUBMIT BUTTON - PREMIUM PROFESSIONAL DESIGN
+   ========================================== */
+
+.contact-form button[type="submit"] {
+    width: 100%;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    padding: 1.2rem 2rem;
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 50%, #b91c1c 100%);
+    color: #ffffff;
+    border: 2px solid transparent;
+    border-radius: 14px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        0 4px 15px rgba(239, 68, 68, 0.3),
+        0 2px 8px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+}
+
+/* Animated gradient background */
+.contact-form button[type="submit"]::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+/* Ripple effect on click */
+.contact-form button[type="submit"]::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease, opacity 0.6s ease;
+    opacity: 0;
+}
+
+.contact-form button[type="submit"]:hover {
+    transform: translateY(-3px) scale(1.02);
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 50%, #991b1b 100%);
+    box-shadow:
+        0 10px 30px rgba(239, 68, 68, 0.5),
+        0 5px 15px rgba(239, 68, 68, 0.4),
+        0 0 0 3px rgba(239, 68, 68, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.contact-form button[type="submit"]:hover::after {
+    left: 100%;
+}
+
+.contact-form button[type="submit"]:active {
+    transform: translateY(-1px) scale(0.98);
+    box-shadow:
+        0 5px 15px rgba(239, 68, 68, 0.4),
+        0 2px 8px rgba(0, 0, 0, 0.3),
+        inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.contact-form button[type="submit"]:active::before {
+    width: 300px;
+    height: 300px;
+    opacity: 1;
+    transition: width 0s, height 0s, opacity 0.3s;
+}
+
+/* Focus state for accessibility */
+.contact-form button[type="submit"]:focus {
+    outline: none;
+    box-shadow:
+        0 10px 30px rgba(239, 68, 68, 0.5),
+        0 0 0 4px rgba(239, 68, 68, 0.3);
+}
+
+/* Disabled state */
+.contact-form button[type="submit"]:disabled {
+    background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    opacity: 0.6;
+}
+
+.contact-form button[type="submit"]:disabled:hover {
+    transform: none;
+    box-shadow: 0 4px 15px rgba(107, 114, 128, 0.2);
+}
+
+/* ==========================================
+   6. ERROR & SUCCESS MESSAGES
+   ========================================== */
+
+.error-message {
+    display: block;
+    color: var(--accent-red);
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    animation: errorShake 0.3s ease;
+}
+
+@keyframes errorShake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+.success-message {
+    display: none;
+    /* Hidden by default, shown via JavaScript */
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(34, 197, 94, 0.1);
+    border: 2px solid rgba(34, 197, 94, 0.3);
+    border-radius: 12px;
+    color: #4ade80;
+    text-align: center;
+    font-weight: 600;
+    animation: successPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes successPop {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ==========================================
+   7. CONTACT INFO - CARD DESIGN
+   ========================================== */
+
+.contact-info-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    animation: infoSlideUp 0.8s ease-out 0.3s both;
+}
+
+@keyframes infoSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contact-info-wrapper h2 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.contact-info-item {
+    background: rgba(30, 41, 59, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 1.75rem;
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: cardDrop 0.6s ease-out both;
+    animation-delay: calc(var(--card-index, 0) * 0.1s + 0.5s);
+}
+
+.contact-info-item:nth-child(1) {
+    --card-index: 0;
+}
+
+.contact-info-item:nth-child(2) {
+    --card-index: 1;
+}
+
+.contact-info-item:nth-child(3) {
+    --card-index: 2;
+}
+
+.contact-info-item:nth-child(4) {
+    --card-index: 3;
+}
+
+@keyframes cardDrop {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.contact-info-item:hover {
+    transform: translateX(8px) translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Email Card - Vibrant Purple-Pink gradient */
+.contact-info-item.email-card {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+    border-color: rgba(118, 75, 162, 0.5);
+}
+
+.contact-info-item.email-card:hover {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.35) 0%, rgba(118, 75, 162, 0.35) 100%);
+    border-color: rgba(118, 75, 162, 0.8);
+    box-shadow: 0 12px 35px rgba(118, 75, 162, 0.4), 0 0 20px rgba(102, 126, 234, 0.3);
+}
+
+.contact-info-item.email-card h3 {
+    color: #a78bfa;
+    text-shadow: 0 0 15px rgba(167, 139, 250, 0.5);
+}
+
+.contact-info-item.email-card a {
+    color: #c4b5fd;
+}
+
+.contact-info-item.email-card a:hover {
+    color: #a78bfa;
+}
+
+/* Phone Card - Modern Emerald-Cyan gradient */
+.contact-info-item.phone-card {
+    background: linear-gradient(135deg, rgba(67, 233, 123, 0.2) 0%, rgba(56, 249, 215, 0.2) 100%);
+    border-color: rgba(56, 249, 215, 0.5);
+}
+
+.contact-info-item.phone-card:hover {
+    background: linear-gradient(135deg, rgba(67, 233, 123, 0.35) 0%, rgba(56, 249, 215, 0.35) 100%);
+    border-color: rgba(56, 249, 215, 0.8);
+    box-shadow: 0 12px 35px rgba(56, 249, 215, 0.4), 0 0 20px rgba(67, 233, 123, 0.3);
+}
+
+.contact-info-item.phone-card h3 {
+    color: #5eead4;
+    text-shadow: 0 0 15px rgba(94, 234, 212, 0.5);
+}
+
+.contact-info-item.phone-card a {
+    color: #99f6e4;
+}
+
+.contact-info-item.phone-card a:hover {
+    color: #5eead4;
+}
+
+/* Location Card - Warm Peach-Yellow gradient */
+.contact-info-item.location-card {
+    background: linear-gradient(135deg, rgba(250, 112, 154, 0.2) 0%, rgba(254, 225, 64, 0.2) 100%);
+    border-color: rgba(250, 112, 154, 0.5);
+}
+
+.contact-info-item.location-card:hover {
+    background: linear-gradient(135deg, rgba(250, 112, 154, 0.35) 0%, rgba(254, 225, 64, 0.35) 100%);
+    border-color: rgba(250, 112, 154, 0.8);
+    box-shadow: 0 12px 35px rgba(250, 112, 154, 0.4), 0 0 20px rgba(254, 225, 64, 0.3);
+}
+
+.contact-info-item.location-card h3 {
+    color: #fbbf24;
+    text-shadow: 0 0 15px rgba(251, 191, 36, 0.5);
+}
+
+.contact-info-item.location-card p {
+    color: #fde047;
+}
+
+.contact-info-item h3 {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.contact-info-item a,
+.contact-info-item p {
+    color: var(--text-tertiary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 1rem;
+}
+
+.contact-info-item a:hover {
+    color: var(--primary-color);
+}
+
+/* ==========================================
+   8. SOCIAL LINKS - PROFESSIONAL BRAND COLORS
+   ========================================== */
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.9rem 1.4rem;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+    text-decoration: none;
+}
+
+.social-link svg {
+    flex-shrink: 0;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.social-link:hover svg {
+    transform: scale(1.2) rotate(5deg);
+}
+
+/* GitHub - Professional black/dark */
+.social-link.github {
+    background: linear-gradient(135deg, #24292e 0%, #1a1e22 100%);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(36, 41, 46, 0.4);
+}
+
+.social-link.github:hover {
+    background: linear-gradient(135deg, #2c3137 0%, #24292e 100%);
+    transform: translateX(8px);
+    box-shadow: 0 8px 25px rgba(36, 41, 46, 0.6);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* LinkedIn - Official LinkedIn blue */
+.social-link.linkedin {
+    background: linear-gradient(135deg, #0A66C2 0%, #004182 100%);
+    color: #ffffff;
+    border-color: rgba(10, 102, 194, 0.3);
+    box-shadow: 0 4px 15px rgba(10, 102, 194, 0.4);
+}
+
+.social-link.linkedin:hover {
+    background: linear-gradient(135deg, #0077B5 0%, #0A66C2 100%);
+    transform: translateX(8px);
+    box-shadow: 0 8px 25px rgba(10, 102, 194, 0.6);
+    border-color: rgba(10, 102, 194, 0.5);
+}
+
+/* Instagram - Vibrant gradient (brand colors) */
+.social-link.instagram {
+    background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: #ffffff;
+    border-color: rgba(240, 148, 51, 0.3);
+    box-shadow: 0 4px 15px rgba(225, 48, 108, 0.4);
+}
+
+.social-link.instagram:hover {
+    background: linear-gradient(135deg, #f9a825 0%, #f09433 25%, #e6683c 50%, #dc2743 75%, #cc2366 100%);
+    color: black;
+    transform: translateX(8px);
+    box-shadow: 0 8px 25px rgba(225, 48, 108, 0.6);
+    border-color: red;
+}
+
+/* Shine effect on hover */
+.social-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.social-link:hover::before {
+    left: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .social-link {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* ==========================================
+   9. AVAILABILITY CARD
+   ========================================== */
+
+.contact-availability {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(22, 163, 74, 0.05));
+    border: 2px solid rgba(34, 197, 94, 0.3);
+    border-radius: 16px;
+    padding: 1.75rem;
+    animation: cardDrop 0.6s ease-out 0.9s both;
+}
+
+.contact-availability h3 {
+    color: #4ade80;
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+}
+
+.contact-availability p {
+    color: var(--text-tertiary);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.time-slots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.75rem;
+}
+
+.time-slot {
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+    backdrop-filter: blur(10px);
+}
+
+/* Morning - Sunrise Orange-Yellow gradient (sunrise) */
+.time-slot.morning {
+    background: linear-gradient(135deg, #FFB75E 0%, #ED8F03 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(237, 143, 3, 0.5);
+    border-color: rgba(255, 183, 94, 0.6);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.time-slot.morning:hover {
+    background: linear-gradient(135deg, #ED8F03 0%, #D87400 100%);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 30px rgba(237, 143, 3, 0.7), 0 0 20px rgba(255, 183, 94, 0.4);
+}
+
+/* Afternoon - Bright Sunshine Yellow-Orange gradient */
+.time-slot.afternoon {
+    background: linear-gradient(135deg, #FDC830 0%, #F37335 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(253, 200, 48, 0.5);
+    border-color: rgba(243, 115, 53, 0.6);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.time-slot.afternoon:hover {
+    background: linear-gradient(135deg, #F37335 0%, #F2994A 100%);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 30px rgba(243, 115, 53, 0.7), 0 0 20px rgba(253, 200, 48, 0.4);
+}
+
+/* Evening - Vibrant Sunset Pink-Blue gradient */
+.time-slot.evening {
+    background: linear-gradient(135deg, #FC466B 0%, #3F5EFB 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(252, 70, 107, 0.5);
+    border-color: rgba(63, 94, 251, 0.6);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.time-slot.evening:hover {
+    background: linear-gradient(135deg, #3F5EFB 0%, #FC466B 100%);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 30px rgba(63, 94, 251, 0.7), 0 0 20px rgba(252, 70, 107, 0.4);
+}
+
+/* Night - Deep Purple-Violet gradient (moonlight) */
+.time-slot.night {
+    background: linear-gradient(135deg, #4A00E0 0%, #8E2DE2 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(74, 0, 224, 0.5);
+    border-color: rgba(142, 45, 226, 0.6);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.time-slot.night:hover {
+    background: linear-gradient(135deg, #8E2DE2 0%, #4A00E0 100%);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 30px rgba(142, 45, 226, 0.7), 0 0 20px rgba(74, 0, 224, 0.4);
+}
+
+/* Pulsing glow animation */
+.time-slot::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s ease;
+    border-radius: 25px;
+}
+
+.time-slot:hover::before {
+    transform: translate(-50%, -50%) scale(1.5);
+}
+
+/* Responsive design for time slots */
+@media (max-width: 768px) {
+    .time-slot {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* ==========================================
+   10. RESPONSIVE DESIGN
+   ========================================== */
+
+@media (max-width: 992px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .contact-section h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-section {
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+
+    .contact-form-wrapper,
+    .contact-info-item {
+        padding: 1.5rem;
+    }
+
+    .contact-section h1 {
+        font-size: 2rem;
+    }
+}
+
+/* ==========================================
+   11. FORM FOOTER MOTIVATIONAL MESSAGE
+   ========================================== */
+
+.form-footer-message {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(212, 165, 116, 0.1) 0%, rgba(239, 68, 68, 0.1) 100%);
+    border-radius: 16px;
+    border: 2px solid rgba(212, 165, 116, 0.2);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.6s ease-out 0.8s both;
+}
+
+.form-footer-message::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(212, 165, 116, 0.15) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.footer-icon {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.footer-quote {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-subtext {
+    font-size: 0.95rem;
+    color: var(--text-tertiary);
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+    margin: 0;
+}
+
+/* Responsive for footer */
+@media (max-width: 768px) {
+    .form-footer-message {
+        padding: 1.25rem;
+    }
+
+    .footer-quote {
+        font-size: 0.95rem;
+    }
+
+    .footer-subtext {
+        font-size: 0.85rem;
+    }
+}

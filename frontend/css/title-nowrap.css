@@ -1,0 +1,6 @@
+/* Prevent hero titles from wrapping to multiple lines */
+.hero-title,
+.projects-hero-title,
+.creative-title {
+    white-space: nowrap !important;
+}
